@@ -1,0 +1,39 @@
+---
+layout: empty
+hide: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <atom:link href="https://www.thisdaysportion.com/api/webmention-feed/index.xml" rel="self" type="application/rss+xml" />
+    <title>FALL LYRICS IN CAPS</title>
+    <description>This is a feed of capitalisd Fall lyrics.</description>
+    <link>https://www.thisdaysportion.com</link>
+    <language>en</language>
+    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
+    <managingEditor>leon.paternoster@zoho.com (Leon Paternoster)</managingEditor>
+    <docs>https://www.thisdaysportion.com/about/what-is-rss/</docs>
+    {% assign min = 1 %}
+    {% capture max %}{{ site.data.songs.size }}{% endcapture %}
+    {% assign diff = max | minus: min %}
+    {% assign randomNumber = "now" | date: "%N" | modulo: diff | plus: min %}
+
+    {% assign songs = site.data.songs %}
+
+    {% for song in songs %}
+
+      {% if forloop.index == randomNumber %}
+        <item>
+          <title></title>
+          <link>https://www.thisdaysportion.com</link>
+          <author>mail@thisdaysportion.com (Leon Paternoster)</author>
+          <pubDate>{{ now | date_to_rfc822 }}</pubDate>
+          <guid>https://www.thisdaysportion.com</guid>
+          <description>{{ song.lyric | upcase | xml_escape }}</description>
+        </item>
+      {% break %}
+      {% endif %}
+
+    {% endfor %}
+  </channel>
+</rss>

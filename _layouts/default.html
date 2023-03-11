@@ -1,0 +1,19 @@
+{% include header.html %}
+
+{% assign min = 1 %}
+{% capture max %}{{ site.data.songs.size }}{% endcapture %}
+{% assign diff = max | minus: min %}
+{% assign randomNumber = "now" | date: "%N" | modulo: diff | plus: min %}
+
+{% assign songs = site.data.songs %}
+
+{% for song in songs %}
+
+    {% if forloop.index == randomNumber %}
+    <p>{{ song.lyric }}</p>
+    {% break %}
+    {% endif %}
+
+{% endfor %}
+
+{% include footer.html %}

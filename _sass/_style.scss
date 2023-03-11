@@ -1,0 +1,25 @@
+* {
+	margin: 0;
+	border-sizing: border-box;
+}
+
+html {
+	background-color: #ff5500;
+	color: #fff;
+	line-height: 1.2;
+	font-size: clamp(150%, 5vw, 500%);
+	font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "segoe ui", "helvetica neue", helvetica, ubuntu, roboto, noto, sans-serif;
+}
+
+body {
+	display: flex;
+	align-items: center;
+	height: 100svmin;
+}
+
+p {
+	font-weight: 900;
+	text-transform: uppercase;
+	padding: 1.5rem;
+	max-width: 24em;
+}
