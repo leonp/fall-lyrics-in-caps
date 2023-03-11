@@ -11,7 +11,7 @@ hide: true
     <link>https://stalwart-empanada-d78311.netlify.app</link>
     <language>en</language>
     <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
-    <managingEditor>leon.paternoster@zoho.com (Leon Paternoster)</managingEditor>
+    <managingEditor>mail@thisdaysportion.com (Leon Paternoster)</managingEditor>
     <docs>https://www.thisdaysportion.com/about/what-is-rss/</docs>
     {% assign min = 1 %}
     {% capture max %}{{ site.data.songs.size }}{% endcapture %}
@@ -24,11 +24,11 @@ hide: true
 
       {% if forloop.index == randomNumber %}
         <item>
-          <title></title>
-          <link>https://stalwart-empanada-d78311.netlify.app</link>
+          <title>{{ song.lyric | upcase | xml_escape }}</title>
+          <link>https://stalwart-empanada-d78311.netlify.app/{{ "now" | date: "%N" }}</link>
           <author>leon.paternoster@zoho.com (Leon Paternoster)</author>
           <pubDate>{{ now | date_to_rfc822 }}</pubDate>
-          <guid>https://stalwart-empanada-d78311.netlify.app</guid>
+          <guid>https://stalwart-empanada-d78311.netlify.app/{{ "now" | date: "%N" }}</guid>
           <description>{{ song.lyric | upcase | xml_escape }} #TheFall #MES</description>
         </item>
       {% break %}
