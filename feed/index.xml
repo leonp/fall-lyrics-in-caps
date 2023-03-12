@@ -24,7 +24,7 @@ hide: true
 
       {% if forloop.index == randomNumber %}
         <item>
-          <title>{{ song.lyric | upcase | xml_escape }}</title>
+          <title></title>
           <link>https://stalwart-empanada-d78311.netlify.app/{{ "now" | date: "%N" }}</link>
           <author>leon.paternoster@zoho.com (Leon Paternoster)</author>
           <pubDate>{{ now | date_to_rfc822 }}</pubDate>

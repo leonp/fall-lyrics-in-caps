@@ -1,0 +1,37 @@
+---
+layout: empty
+hide: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title type="text" xml:lang="en">FALL LYRICS IN CAPS</title>
+    <description>Random Fall lyrcis, capitalised.</description>
+    <link type="application/atom+xml" href="https://stalwart-empanada-d78311.netlify.app/feed/feed.xml" rel="self"/>
+    <link type="text/html" href="https://stalwart-empanada-d78311.netlify.app" rel="alternate"/>
+    <updated>{{ site.time | date_to_xmlschema }}</updated>
+    <id>https://stalwart-empanada-d78311.netlify.app</id>
+    <author><name>FALL LYRICS IN CAPS</name></author>
+    <docs>https://www.thisdaysportion.com/about/what-is-rss/</docs>
+
+    {% assign min = 1 %}
+    {% capture max %}{{ site.data.songs.size }}{% endcapture %}
+    {% assign diff = max | minus: min %}
+    {% assign randomNumber = "now" | date: "%N" | modulo: diff | plus: min %}
+    {% assign songs = site.data.songs %}
+    
+    {% for song in songs %}
+
+    {% if forloop.index == randomNumber %}
+    <entry>
+      <title></title>
+      <link href="https://stalwart-empanada-d78311.netlify.app/https://stalwart-empanada-d78311.netlify.app/{{ 'now' | date: '%N' }}"/>
+      <updated>{{ site.time | date_to_rfc822 }}</updated>
+      <id>https://stalwart-empanada-d78311.netlify.app/https://stalwart-empanada-d78311.netlify.app/{{ 'now' | date: '%N' }}</id>
+      <description>{{ song.lyric | upcase | xml_escape }} #TheFall #MES</description>
+      <content type="text">{{ song.lyric | upcase | xml_escape }} #TheFall #MES</content>
+    </entry>
+    {% endif %}
+
+    {% endfor %}
+
+</feed>
