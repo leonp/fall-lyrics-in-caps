@@ -29,7 +29,7 @@ hide: true
       <updated>{{ site.time | date_to_rfc822 }}</updated>
       <id>https://stalwart-empanada-d78311.netlify.app/https://stalwart-empanada-d78311.netlify.app/{{ 'now' | date: '%N' }}</id>
       <description>{{ song.lyric | upcase | xml_escape }}</description>
-      <content type="text">{{ song.lyric | upcase | xml_escape }} #TheFall #MES {% if day == "Fri" %} #FallFriday{% endif %}</content>
+      <content type="text">{{ song.lyric | upcase | xml_escape }} #TheFall #MES{% if day == "Fri" %} #FallFriday{% endif %}</content>
     </entry>
     {% endif %}
 
