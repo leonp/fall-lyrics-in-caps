@@ -17,6 +17,7 @@ hide: true
     {% capture max %}{{ site.data.songs.size }}{% endcapture %}
     {% assign diff = max | minus: min %}
     {% assign randomNumber = "now" | date: "%N" | modulo: diff | plus: min %}
+    {% assign day = "now" | date: "%a" %}
     {% assign songs = site.data.songs %}
     
     {% for song in songs %}
@@ -28,7 +29,7 @@ hide: true
       <updated>{{ site.time | date_to_rfc822 }}</updated>
       <id>https://stalwart-empanada-d78311.netlify.app/https://stalwart-empanada-d78311.netlify.app/{{ 'now' | date: '%N' }}</id>
       <description>{{ song.lyric | upcase | xml_escape }}</description>
-      <content type="text">{{ song.lyric | upcase | xml_escape }} #TheFall #MES</content>
+      <content type="text">{{ song.lyric | upcase | xml_escape }} #TheFall #MES {% if day == "Fri" %} #FallFriday{% endif %}</content>
     </entry>
     {% endif %}
 
